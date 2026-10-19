@@ -2,11 +2,15 @@ import { Link } from 'react-router-dom'
 import { ProductGrid } from '../components/ProductGrid.tsx'
 import { categories, products } from '../data/catalog.ts'
 
+function asset(file: string) {
+  return `${import.meta.env.BASE_URL}${file}`
+}
+
 const categoryImage: Record<(typeof categories)[number]['id'], string> = {
-  lighting: '/products/arc-lamp.jpg',
-  textiles: '/products/towel.jpg',
-  tableware: '/products/bowl.jpg',
-  objects: '/products/lounge.jpg',
+  lighting: asset('products/arc-lamp.jpg'),
+  textiles: asset('products/towel.jpg'),
+  tableware: asset('products/bowl.jpg'),
+  objects: asset('products/lounge.jpg'),
 }
 
 export function HomePage() {
@@ -25,7 +29,7 @@ export function HomePage() {
             Shop the collection
           </Link>
         </div>
-        <img src="/products/hero.jpg" alt="A living room with a grey sofa, oak table, and an arc lamp" />
+        <img src={asset('products/hero.jpg')} alt="A living room with a grey sofa, oak table, and an arc lamp" />
       </section>
 
       <section className="section">
